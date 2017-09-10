@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="BuildingBase" Name="PortalBase" Abstract="True">
+		<canOverlapZones>false</canOverlapZones>
+		<comps>
+			<li>
+				<compClass>CuiPortal.CompTransmissible</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	
+	<ThingDef ParentName="PortalBase">
+		<defName>Portal</defName>
+		<label>portal</label>
+		<thingClass>CuiPortal.Building_Portal</thingClass>
+		<description>A portal.</description>
+		
+		<graphicData>
+			<texPath>dropbeacon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.4, 0.3)</volume>
+				<offset>(0,0,-0.1)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+		</graphicData>
+		
+		<inspectorTabs>
+			<li>CuiPortal.ITab_Portal</li>
+		</inspectorTabs>
+		
+		<costList>
+			<Steel>10</Steel>
+		</costList>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>75</costStuffCount>
+		
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>1300</WorkToBuild>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<fillPercent>0.15</fillPercent>
+		<pathCost>20</pathCost>
+		<designationCategory>Misc</designationCategory>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		
+		<comps>
+			<li Class="CompProperties_Usable">
+				<compClass>CuiPortal.CompPortalController</compClass>
+				<useLabel>Use this portal.</useLabel>
+				<useJob>UsePortal</useJob>
+			</li>
+				<li Class="CompProperties_UseEffect">
+				<compClass>CuiPortal.CompUseEffect_PortalJumper</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+	
+</Defs>
